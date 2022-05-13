@@ -64,40 +64,9 @@ class Stack:
         return f"This is the minimum number in the stack: {minNum}"
 
 
+sampleArr = [1,2,3,4,5]
+newArr = Stack(sampleArr)
+print(newArr.pop())
 
+print(newArr.push(5))
 
-
-def testFun(sampleArr):
-    if type(sampleArr) != list:
-        print("Sorry, this stack class cannot operate on this data type")
-        exit()
-    newArr = Stack(sampleArr)
-    userInput = input("""What operation will you like to perform on your stack: ?\n"""
-    """push/pop/top/isEmpty/content: """)
-    if userInput == "push":
-        userPushInput = input("""What number will you like to be pushed to the top of\n"""
-        """the stack: """)
-        newArr.push(userPushInput)
-    
-    elif userInput == "pop":
-        newArr.pop()
-
-    elif userInput == "top":
-        newArr.topNum()
-    
-    elif userInput == "empty":
-        newArr.isEmpty()
-
-    elif userInput == "content":
-        newArr.contentArr()
-    
-    else:
-        print("""sorry, I don't understand that operation. Try\n
-        push/pop/top/isEmpty/content""")
-
-print(testFun([1,2]))
-# print(sampleArr.pop())
-# print(sampleArr.contentArr())
-# print(sampleArr.push(5))
-# print(sampleArr.pop())
-# print(sampleArr.contentArr())
