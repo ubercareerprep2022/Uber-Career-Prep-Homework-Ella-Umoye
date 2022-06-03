@@ -24,13 +24,6 @@ class Queue:
             return "Sorry, that's an index out of range"
         else:
             self.arr.remove(y)
-            # print(self.arr)
-            # print(len(self.arr))
-            # newArr = [0] * (len(self.arr) - 1) 
-            # for i in range(1, len(self.arr)-2):
-            #     newArr[i-1] = self.arr[i]
-            # self.arr = newArr
-            # print(f"This {y} number has been removed from the queue")
         return self.arr
 
     def rear(self):
