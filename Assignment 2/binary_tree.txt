@@ -1,0 +1,72 @@
+from hmac import new
+from tkinter import NO
+
+
+class Node:
+    def __init__(self,data):
+       self.data=data
+       self.left=None
+       self.right=None
+
+
+class binarytree:
+   def __init__(self):
+     self.root=None
+     self.size=0
+
+   def insert(self,data):
+    # If the root is None, an empty tree
+     if self.root==None:
+        # set the root to a Node containing the data
+        self.root=Node(data)
+        # else, create a temp var that stores the value of
+        # of the root node to traverse through the tree
+     else:
+        current=self.root
+        # not really sure what this does
+        while 1:
+            # Usually, the left_node <= parent_node <= right_node
+            # if the data is < than current.data
+            if data < current.data:
+                # if current.left isn't None
+                if current.left:
+                    # current = current.left to traverse through the next_node
+                    current=current.left
+                # else if it's None, then we want to create a new left_node and add it as a child to the parent_node
+                else:
+                    #set a new object of type TreeNode to contaqin the data
+                    new_node=Node(data)
+                    # current.left = new and break
+                    current.left=new_node
+                    break
+            # If the data is > current.data, then we want to traverse the right_node instead
+            elif data > current.data:
+                # if current.right is not None, traverse through the right_node by setting current to current.right
+                if current.right:
+                    current=current.right
+                # if None
+                else:
+                    # create a new_tree_node
+                    new_node=Node(data)
+                    # assign current.right to the new_tree_node
+                    current.right=new_node
+                    # break out of the loop
+                    break
+            else:
+                break
+   def printTree(self):
+        new_node = self.root
+        while new_node:
+            if new_node == None:
+                return
+            else:
+                print(new_node.data)
+                if new_node.left.data < new_node.right.data:
+                    new_node = new_node.left
+                else:
+                    new_node = new_node.right
+b=binarytree()  
+b.insert(10)
+b.insert(100)
+b.insert(5)
+b.printTree()
