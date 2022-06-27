@@ -69,7 +69,6 @@ class Tree:
         current_node = self.root
         queue = []
         queue.append(self.root)
-
         while queue:
             queue_len  = len(queue)
             count = 0
@@ -86,6 +85,32 @@ class Tree:
                     queue.append(current_node.right_child) 
                 queue_len -= 1
             print(' ')
+    
+    def printNumLevels(self):
+        # ensures the tree isn't empty
+        if self.root == None:
+            return
+        current_node = self.root
+        queue = []
+        queue.append(self.root)
+
+        while queue:
+            queue_len  = len(queue)
+            count = 0
+            while(queue_len>0):
+                current_node = queue.pop(0)
+                # print(f"{count} tree node ")
+                count += 1
+                # print(f"{current_node.data}", end=" ")
+                # check that the left child isn't none and append the subtree to the queue
+                if current_node.left_child != None:
+                    queue.append(current_node.left_child)
+                # check that the right child isn't none and append the subtree to the queue
+                if current_node.right_child != None:
+                    queue.append(current_node.right_child) 
+                queue_len -= 1
+            # print(' ')
+        return count
 
 def test_tree_print():
     root = Tree(45)
@@ -117,5 +142,6 @@ def test_tree_print_level_by_level():
     root.add_right_child(10)
 
     print("Level Order Traversal of binary tree is -")
-    root.printLevelOrderTraversal()
-# test_tree_methods()
+    # root.printLevelByLevel()
+    print(root.printLevelByLevel())
+test_tree_print_level_by_level()
