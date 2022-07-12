@@ -80,6 +80,23 @@ class BinarySearchTree:
                 queue_len -= 1
             print(" ")
 
+    def size(self):
+        if self.root == None:
+            return
+        count = 1
+        queue = []
+        queue.append(self.root)
+        # current_node = self.root
+        
+        while queue:
+            current_node = queue.pop()
+            if current_node.left:
+                queue.append(current_node.left)
+                count += 1
+            if current_node.right:
+                queue.append(current_node.right)
+                count += 1
+        return count
 root = BinarySearchTree(45)
 root.insert(80)
 root.insert(19)
@@ -87,3 +104,4 @@ root.insert(20)
 root.insert(10)
 root.printTree()
 print(root.find(2))
+print(root.size())
